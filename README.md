@@ -1,0 +1,1 @@
+bright, hot, and fleeting
