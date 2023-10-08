@@ -4,28 +4,31 @@
 void ofApp::setup(){
 	ofBackground(25, 25, 25);
     numPoints = 2;
-    points.resize(numPoints);
+    pos.resize(numPoints);
+    col.resize(numPoints);
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
     for(int i = numPoints-1; i > 0; i--) {
-        points[i] = points[i-1];
+        pos[i] = pos[i-1];
+        col[i] = col[i-1];
     }
-    points[0] = ofVec2f(mouseX, mouseY);
+    pos[0] = ofVec2f(mouseX, mouseY);
+    col[0] = ofColor::fromHsb(ofRandom(255), 255, 255);
     numPoints = ofGetElapsedTimef();
-    points.resize(numPoints);
+    pos.resize(numPoints);
+    col.resize(numPoints);
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
     for(int i = 0; i < numPoints-1; i++) {
-        ofColor c = ofColor::fromHsb(ofRandom(255), 255, 255);
-        ofSetColor(c);
-        ofDrawCircle(points[i], 5);
-        ofDrawLine(points[i], points[i+1]);
+        ofSetColor(col[i]);
+        ofDrawCircle(pos[i], 5);
+        ofDrawLine(pos[i], pos[i+1]);
     }
-    ofDrawCircle(points[numPoints-1], 5);
+    ofDrawCircle(pos[numPoints-1], 5);
 }
 
 //--------------------------------------------------------------

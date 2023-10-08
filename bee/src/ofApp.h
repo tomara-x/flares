@@ -22,5 +22,6 @@ class ofApp : public ofBaseApp{
 		void gotMessage(ofMessage msg);
 
         int numPoints;
-        vector<glm::vec2> points;
+        vector<glm::vec2> pos;
+        vector<ofColor> col;
 };
