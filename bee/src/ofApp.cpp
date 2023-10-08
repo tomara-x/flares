@@ -14,7 +14,7 @@ void ofApp::update(){
         pos[i] = pos[i-1];
         col[i] = col[i-1];
     }
-    pos[0] = ofVec2f(mouseX, mouseY);
+    pos[0] = glm::vec2(mouseX, mouseY);
     col[0] = ofColor::fromHsb(ofRandom(255), 255, 255);
     numPoints = ofGetElapsedTimef();
     pos.resize(numPoints);
