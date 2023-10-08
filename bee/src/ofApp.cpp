@@ -3,7 +3,7 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
 	ofBackground(25, 25, 25);
-    numPoints = 200;
+    numPoints = 2;
     points.resize(numPoints);
 }
 
@@ -13,6 +13,8 @@ void ofApp::update(){
         points[i] = points[i-1];
     }
     points[0] = ofVec2f(mouseX, mouseY);
+    numPoints = ofGetElapsedTimef();
+    points.resize(numPoints);
 }
 
 //--------------------------------------------------------------
