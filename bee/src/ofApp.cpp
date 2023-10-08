@@ -10,7 +10,7 @@ void ofApp::update(){
     for(int i = 19; i > 0; i--) {
         points[i] = points[i-1];
     }
-    points[0].set(mouseX, mouseY);
+    points[0] = ofVec2f(mouseX, mouseY);
 }
 
 //--------------------------------------------------------------
