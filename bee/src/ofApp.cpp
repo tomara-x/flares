@@ -18,6 +18,9 @@ void ofApp::draw(){
     for(int i = 0; i < 20; i++) {
         ofDrawCircle(points[i], 5);
     }
+    for(int i = 0; i < 19; i++) {
+        ofDrawLine(points[i], points[i+1]);
+    }
 }
 
 //--------------------------------------------------------------
