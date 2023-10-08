@@ -3,11 +3,13 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
 	ofBackground(25, 25, 25);
+    numPoints = 200;
+    points.resize(numPoints);
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-    for(int i = 19; i > 0; i--) {
+    for(int i = numPoints-1; i > 0; i--) {
         points[i] = points[i-1];
     }
     points[0] = ofVec2f(mouseX, mouseY);
@@ -15,12 +17,13 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-    for(int i = 0; i < 20; i++) {
+    for(int i = 0; i < numPoints-1; i++) {
+        ofColor c = ofColor::fromHsb(ofRandom(255), 255, 255);
+        ofSetColor(c);
         ofDrawCircle(points[i], 5);
-    }
-    for(int i = 0; i < 19; i++) {
         ofDrawLine(points[i], points[i+1]);
     }
+    ofDrawCircle(points[numPoints-1], 5);
 }
 
 //--------------------------------------------------------------

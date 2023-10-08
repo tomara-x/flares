@@ -20,7 +20,7 @@ class ofApp : public ofBaseApp{
 		void windowResized(int w, int h);
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
-		
-        glm::vec2 points[20];
-        ofPath path;
+
+        int numPoints;
+        vector<glm::vec2> points;
 };
